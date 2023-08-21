@@ -14,8 +14,15 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_1_clicked()
 {
-    ui->label->setText("welcome");
+    ui->textBrowser->insertPlainText("1");
 }
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    ui->textBrowser->insertPlainText("2");
+}
+
 
