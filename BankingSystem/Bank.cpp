@@ -13,8 +13,6 @@ public:
         random_device rd;
         mt19937 gen(rd()); // Use a Mersenne Twister engine with a random seed
 
-        this->isOnline = true;
-
         for (Card card : customers)
         {
 
