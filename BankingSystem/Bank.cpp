@@ -7,8 +7,6 @@ private:
     map<int, Card> cards;
     map<Card, int> passwords;
 
-    bool isOnline;
-
 public:
     Bank::Bank(list<Card> &customers)
     {

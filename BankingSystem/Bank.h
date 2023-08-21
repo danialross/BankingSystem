@@ -9,7 +9,6 @@ class Bank
 private:
     map<int, Card> cards;
     map<Card, int> passwords;
-    bool isOnline;
 
 public:
     Bank(list<Card> &customers) {}
