@@ -4,7 +4,9 @@
 class Bank
 {
 private:
-    map<Card, int> users;
+    map<int, Card> cards;
+    map<Card, int> passwords;
+
     bool isOnline;
 
 public:
@@ -14,19 +16,21 @@ public:
         mt19937 gen(rd()); // Use a Mersenne Twister engine with a random seed
 
         this->isOnline = true;
+
         for (Card card : customers)
         {
 
             // random pass generator
             //  Define the range for 8-digit numbers (10^7 to 10^8 - 1)
             uniform_int_distribution<int> distribution(10000000, 99999999);
-            users[card] = (distribution(gen));
+            cards[card.getId()] = card;
+            passwords[card] = (distribution(gen));
         }
     }
 
-    bool Bank::isValidUser(Card &card, int pass)
+    bool Bank::isValidUser(int id, int pass)
     {
-        if (users[card] == pass)
+        if (passwords[cards[id]] == pass)
         {
             return true;
         }

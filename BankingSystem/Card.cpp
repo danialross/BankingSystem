@@ -22,6 +22,11 @@ public:
         balance = distribution(gen);
     }
 
+    int Card::getId()
+    {
+        return this->id;
+    }
+
     long Card::getBalance()
     {
         return this->balance;

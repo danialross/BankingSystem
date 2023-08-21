@@ -11,6 +11,7 @@ private:
 
 public:
     Card();
+    int getId();
     long getBalance();
     void setBalance(long newBal);
 };
