@@ -1,6 +1,9 @@
+#ifndef BANK_H
+#define BANK_H
+
 #include <iostream>
-#include <list>
 #include <map>
+#include "Card.h"
 
 using namespace std;
 
@@ -11,6 +14,8 @@ private:
     map<Card, int> passwords;
 
 public:
-    Bank(list<Card> &customers) {}
-    bool isValidUser(int id, int pass) {}
+    Bank(int numCards);
+    bool isValidUser(int id, int pass);
 };
+
+#endif // BANK_H

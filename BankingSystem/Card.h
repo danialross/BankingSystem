@@ -1,3 +1,5 @@
+#ifndef CARD_H
+#define CARD_H
 #include <iostream>
 #include <random>
 
@@ -15,3 +17,5 @@ public:
     long getBalance();
     void setBalance(long newBal);
 };
+
+#endif //

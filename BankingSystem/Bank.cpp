@@ -1,36 +1,29 @@
 #include "Bank.h"
-#include "Card.h"
 
-class Bank
+Bank::Bank(int numCards)
 {
-private:
-    map<int, Card> cards;
-    map<Card, int> passwords;
+    random_device rd;
+    mt19937 gen(rd()); // Use a Mersenne Twister engine with a random seed
 
-public:
-    Bank::Bank(list<Card> &customers)
+    for (int i = 0; i < numCards; i++)
     {
-        random_device rd;
-        mt19937 gen(rd()); // Use a Mersenne Twister engine with a random seed
 
-        for (Card card : customers)
-        {
+        // random pass generator
+        //  Define the range for 8-digit numbers (10^7 to 10^8 - 1)
+        uniform_int_distribution<int> distribution(10000000, 99999999);
+        Card c = Card();
 
-            // random pass generator
-            //  Define the range for 8-digit numbers (10^7 to 10^8 - 1)
-            uniform_int_distribution<int> distribution(10000000, 99999999);
-            cards[card.getId()] = card;
-            passwords[card] = (distribution(gen));
-        }
+        cards[c.getId()] = c;
+        passwords[c] = (distribution(gen));
+    }
+}
+
+bool Bank::isValidUser(int id, int pass)
+{
+    if (passwords[cards[id]] == pass)
+    {
+        return true;
     }
 
-    bool Bank::isValidUser(int id, int pass)
-    {
-        if (passwords[cards[id]] == pass)
-        {
-            return true;
-        }
-
-        return false;
-    }
-};
+    return false;
+}
