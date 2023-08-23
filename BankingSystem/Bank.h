@@ -10,8 +10,8 @@ using namespace std;
 class Bank
 {
 private:
-    map<int, Card> cards;
-    map<Card, int> passwords;
+    map<int, Card *> cards;
+    map<Card *, int> passwords;
 
 public:
     Bank(int numCards);

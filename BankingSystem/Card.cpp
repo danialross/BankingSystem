@@ -11,8 +11,8 @@ Card::Card()
     id = distribution(gen);
 
     // random balance generator
-    uniform_int_distribution<int> distribution(1, 99999);
-    balance = distribution(gen);
+    uniform_int_distribution<int> distribution2(1, 99999);
+    balance = distribution2(gen);
 }
 
 int Card::getId()
@@ -29,3 +29,5 @@ void Card::setBalance(long newBal)
 {
     this->balance = newBal;
 }
+
+

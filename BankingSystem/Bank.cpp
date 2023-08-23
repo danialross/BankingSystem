@@ -9,12 +9,14 @@ Bank::Bank(int numCards)
     {
 
         // random pass generator
-        //  Define the range for 8-digit numbers (10^7 to 10^8 - 1)
-        uniform_int_distribution<int> distribution(10000000, 99999999);
-        Card c = Card();
+        //  Define the range for 4-digit numbers
+        uniform_int_distribution<int> distribution(1000, 9999);
+        Card *c = new Card();
 
-        cards[c.getId()] = c;
-        passwords[c] = (distribution(gen));
+        cards[c->getId()] = c;
+        passwords[c] = distribution(gen);
+
+        cout <<  "Card " << i+1 << ", ID : " << c->getId() << " , password : " << passwords[c] << endl;
     }
 }
 
