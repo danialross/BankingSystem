@@ -103,15 +103,18 @@ void MainWindow::on_enterButton_clicked()
 
     int accNum = stoi(input.toStdString());
 
-    auto it = bank->getCards().find(accNum);
+    map<int, Card*> db = bank->getCards();
 
-    cout << it->first << endl;
+    auto it = db.find(accNum);
 
-    if(it != bank->getCards().end()){
+    if(it != db.end()){
+        cout << "Valid" << endl;
         // change to pin
     }else{
         ui->lineEdit->setText("");
+        ui->enterButton->setEnabled(false);
         ui->errorLabel->setText("Invalid Account Number");
+
     }
 
 }
