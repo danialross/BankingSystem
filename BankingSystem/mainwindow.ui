@@ -145,6 +145,9 @@
     </property>
    </widget>
    <widget class="QPushButton" name="enterButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>30</x>
