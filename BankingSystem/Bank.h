@@ -16,6 +16,8 @@ private:
 public:
     Bank(int numCards);
     bool isValidUser(int id, int pass);
+    map<int, Card *> getCards();
+    map<Card *, int> getPasswords();
 };
 
 #endif // BANK_H

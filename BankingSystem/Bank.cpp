@@ -29,3 +29,11 @@ bool Bank::isValidUser(int id, int pass)
 
     return false;
 }
+
+map<Card *, int> Bank::getPasswords(){
+    return this->passwords;
+}
+
+map<int,Card *> Bank::getCards(){
+    return this->cards;
+}
