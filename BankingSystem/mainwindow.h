@@ -43,6 +43,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    Bank bank;
+    Bank *bank;
 };
 #endif // MAINWINDOW_H

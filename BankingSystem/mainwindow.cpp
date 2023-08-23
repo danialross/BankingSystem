@@ -5,11 +5,12 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , bank(4)
-
-
 {
 
+    bank = new Bank(4);
+    for (const auto& pair : bank->getCards()) {
+        std::cout << "Key: " << pair.first << ", Value: " << pair.second << std::endl;
+    }
     ui->setupUi(this);
 }
 
@@ -90,5 +91,19 @@ void MainWindow::on_clearButton_clicked()
 
 void MainWindow::on_enterButton_clicked()
 {
+    QString input = ui->lineEdit->text();
+
+    int accNum = stoi(input.toStdString());
+
+    auto it = bank->getCards().find(accNum);
+
+    cout << it->first << endl;
+
+    /*if(it != bank.getCards().end()){
+        // change to pin
+    }else{
+        ui->lineEdit->setText("");
+        ui->errorLabel->setText("Invalid Account Number");
+    }*/
 
 }
