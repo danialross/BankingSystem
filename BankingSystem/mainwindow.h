@@ -41,12 +41,6 @@ private slots:
 
     void on_enterButton_clicked();
 
-    void on_withdrawButton_clicked();
-
-    void on_depositButton_clicked();
-
-    void on_balanceButton_clicked();
-
 private:
     Ui::MainWindow *ui;
     Bank bank;
