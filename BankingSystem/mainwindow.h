@@ -44,5 +44,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Bank *bank;
+    int currAcc;
 };
 #endif // MAINWINDOW_H

@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-
     bank = new Bank(4);
+    currAcc = -1;
     ui->setupUi(this);
 }
 
@@ -22,6 +22,7 @@ void MainWindow::on_pushButton_1_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "1");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 
@@ -30,6 +31,7 @@ void MainWindow::on_pushButton_2_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "2");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 
@@ -39,6 +41,7 @@ void MainWindow::on_pushButton_3_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "3");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 void MainWindow::on_pushButton_4_clicked()
@@ -46,6 +49,7 @@ void MainWindow::on_pushButton_4_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "4");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 void MainWindow::on_pushButton_5_clicked()
@@ -53,6 +57,7 @@ void MainWindow::on_pushButton_5_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "5");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 void MainWindow::on_pushButton_6_clicked()
@@ -60,6 +65,7 @@ void MainWindow::on_pushButton_6_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "6");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 void MainWindow::on_pushButton_7_clicked()
@@ -67,6 +73,7 @@ void MainWindow::on_pushButton_7_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "7");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 void MainWindow::on_pushButton_8_clicked()
@@ -74,6 +81,7 @@ void MainWindow::on_pushButton_8_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "8");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 void MainWindow::on_pushButton_9_clicked()
@@ -81,6 +89,7 @@ void MainWindow::on_pushButton_9_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "9");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 void MainWindow::on_pushButton_0_clicked()
@@ -88,6 +97,7 @@ void MainWindow::on_pushButton_0_clicked()
     QString currText = ui->lineEdit->text();
     ui->lineEdit->setText(currText + "0");
     ui->enterButton->setEnabled(true);
+    ui->errorLabel->setText("");
 }
 
 
@@ -99,22 +109,46 @@ void MainWindow::on_clearButton_clicked()
 
 void MainWindow::on_enterButton_clicked()
 {
-    QString input = ui->lineEdit->text();
+    if(currAcc == -1){
+        QString input = ui->lineEdit->text();
 
-    int accNum = stoi(input.toStdString());
+        int accNum = stoi(input.toStdString());
 
-    map<int, Card*> db = bank->getCards();
+        map<int, Card*> db = bank->getCards();
 
-    auto it = db.find(accNum);
+        auto it = db.find(accNum);
 
-    if(it != db.end()){
-        cout << "Valid" << endl;
-        // change to pin
+        if(it != db.end()){
+            ui->label->setText("Enter Your 4 Digit PIN Number : \nPress \"Enter\" when done");
+            currAcc = accNum;
+            ui->lineEdit->setText("");
+            ui->enterButton->setEnabled(false);
+            ui->lineEdit->setEchoMode(QLineEdit::Password);
+
+        }else{
+            ui->lineEdit->setText("");
+            ui->enterButton->setEnabled(false);
+            ui->errorLabel->setText("Invalid Account Number");
+        }
     }else{
-        ui->lineEdit->setText("");
-        ui->enterButton->setEnabled(false);
-        ui->errorLabel->setText("Invalid Account Number");
+        QString input = ui->lineEdit->text();
 
+        int pin = stoi(input.toStdString());
+
+        map<Card* , int> passwords = bank->getPasswords();
+        map<int , Card*> cards = bank->getCards();
+
+        if(passwords[cards[currAcc]] == pin){
+
+        }else{
+            ui->label->setText("Enter Your 8 Digit Account Number : \nPress \"Enter\" when done");
+            currAcc = -1;
+            ui->lineEdit->setText("");
+            ui->enterButton->setEnabled(false);
+            ui->errorLabel->setText("Invalid PIN");
+            ui->lineEdit->setEchoMode(QLineEdit::Normal);
+        }
     }
+
 
 }
