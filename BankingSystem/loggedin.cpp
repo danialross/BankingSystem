@@ -36,3 +36,10 @@ void LoggedIn::setCurrCard(Card *newCurrCard)
     currCard = newCurrCard;
 }
 
+
+void LoggedIn::on_exitButton_clicked()
+{
+    close();
+    before->close();
+}
+

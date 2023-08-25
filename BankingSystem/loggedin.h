@@ -23,6 +23,8 @@ public:
 private slots:
     void on_balanceButton_clicked();
 
+    void on_exitButton_clicked();
+
 private:
     Ui::LoggedIn *ui;
     QMainWindow *before;
