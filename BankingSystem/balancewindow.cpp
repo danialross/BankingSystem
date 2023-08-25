@@ -7,7 +7,9 @@ BalanceWindow::BalanceWindow(const QString &str,QWidget *parent) :
 
 {
     ui->setupUi(this);
-    ui->textBrowser->setText("\n\nCurrent Balance:\n$"+str);
+    ui->textBrowser->setAlignment(Qt::AlignCenter);
+    ui->textBrowser->insertPlainText("\n\nCurrent Balance:\n$"+str);
+
 }
 
 BalanceWindow::~BalanceWindow()
