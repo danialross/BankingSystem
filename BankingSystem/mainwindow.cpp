@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    // Disable the minimize, maximize, and close buttons
+    setWindowFlags(Qt::FramelessWindowHint);
     bank = new Bank(4);
     currAcc = -1;
     ui->setupUi(this);

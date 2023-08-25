@@ -7,6 +7,7 @@ BalanceWindow::BalanceWindow(QMainWindow *before,const QString &str,QWidget *par
 
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint);
     this->before = before;
     ui->textBrowser->setAlignment(Qt::AlignCenter);
     ui->textBrowser->insertPlainText("\n\nCurrent Balance:\n\n$"+str);

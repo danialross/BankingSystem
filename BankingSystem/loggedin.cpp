@@ -9,6 +9,7 @@ LoggedIn::LoggedIn(QMainWindow *before,Card *card,QWidget *parent) :
     ui(new Ui::LoggedIn)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint);
     this->before = before;
     this->currCard = card;
 

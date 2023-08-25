@@ -6,6 +6,7 @@ Withdraw::Withdraw(Card* card,QMainWindow *before, QWidget *parent) :
     ui(new Ui::Withdraw)
 {
     ui->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint);
     this->before = before;
     this->card = card;
     ui->label->setText("Enter the amount to withdraw.\n\nAvailable amount : $" + QString::number(this->card->getBalance()));
