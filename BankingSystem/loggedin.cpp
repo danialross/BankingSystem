@@ -1,6 +1,8 @@
 #include "loggedin.h"
 #include "ui_loggedin.h"
 #include "balancewindow.h"
+#include "withdraw.h"
+
 
 LoggedIn::LoggedIn(QWidget *parent) :
     QMainWindow(parent),
@@ -41,5 +43,13 @@ void LoggedIn::on_exitButton_clicked()
 {
     close();
     before->close();
+}
+
+
+void LoggedIn::on_withdrawButton_clicked()
+{
+    Withdraw *withdrawWindow = new Withdraw(currCard,this);
+    withdrawWindow->show();
+    setEnabled(false);
 }
 

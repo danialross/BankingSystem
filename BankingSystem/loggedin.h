@@ -25,6 +25,8 @@ private slots:
 
     void on_exitButton_clicked();
 
+    void on_withdrawButton_clicked();
+
 private:
     Ui::LoggedIn *ui;
     QMainWindow *before;
