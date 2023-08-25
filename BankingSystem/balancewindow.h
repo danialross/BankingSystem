@@ -12,11 +12,10 @@ class BalanceWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit BalanceWindow(QWidget *parent = nullptr);
+    explicit BalanceWindow(const QString &str = QString(),QWidget *parent = nullptr);
     ~BalanceWindow();
 
     void setBefore(QMainWindow *newBefore);
-    void setText(QString &str);
 
 private slots:
     void on_pushButton_clicked();

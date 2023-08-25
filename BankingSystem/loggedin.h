@@ -2,7 +2,7 @@
 #define LOGGEDIN_H
 
 #include <QMainWindow>
-#include "ui_mainwindow.h"
+#include "Card.h"
 
 namespace Ui {
 class LoggedIn;
@@ -21,9 +21,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_balanceButton_clicked();
+
 private:
     Ui::LoggedIn *ui;
     QMainWindow *before;
+    Card* currCard;
 };
 
 #endif // LOGGEDIN_H

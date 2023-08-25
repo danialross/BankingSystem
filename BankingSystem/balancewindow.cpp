@@ -1,11 +1,13 @@
 #include "balancewindow.h"
 #include "ui_balancewindow.h"
 
-BalanceWindow::BalanceWindow(QWidget *parent) :
+BalanceWindow::BalanceWindow(const QString &str,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::BalanceWindow)
+
 {
     ui->setupUi(this);
+    ui->textBrowser->setText("\n\nCurrent Balance:\n$"+str);
 }
 
 BalanceWindow::~BalanceWindow()
@@ -20,6 +22,6 @@ void BalanceWindow::setBefore(QMainWindow *newBefore)
 
 void BalanceWindow::on_pushButton_clicked()
 {
-
+    before->setEnabled(true);
+    close();
 }
-

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>416</width>
+    <width>364</width>
     <height>307</height>
    </rect>
   </property>
@@ -17,27 +17,58 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>110</y>
-      <width>141</width>
-      <height>16</height>
+      <x>100</x>
+      <y>40</y>
+      <width>161</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
-     <string>Successfully Logged In</string>
+     <string>Welcome To ATM Banking 
+
+Select an Option :</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="balanceButton">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>130</x>
+      <y>100</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Check Balance</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="withdrawButton">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
       <y>140</y>
       <width>100</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>Exit</string>
+     <string>Withdraw</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="depositButton">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>180</y>
+      <width>100</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Deposit</string>
     </property>
    </widget>
   </widget>
@@ -46,7 +77,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>416</width>
+     <width>364</width>
      <height>24</height>
     </rect>
    </property>
