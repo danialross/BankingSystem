@@ -18,9 +18,9 @@ public:
 
     void setBefore(QMainWindow *newBefore);
 
-private slots:
-    void on_pushButton_clicked();
+    void setCurrCard(Card *newCurrCard);
 
+private slots:
     void on_balanceButton_clicked();
 
 private:

@@ -154,6 +154,7 @@ void MainWindow::on_enterButton_clicked()
                 LoggedIn *loggedInUi = new LoggedIn;
                 loggedInUi->show();
                 loggedInUi->setBefore(this);
+                loggedInUi->setCurrCard(cards[currAcc]);
 
                 setEnabled(false);
                 ui->label->setText("Enter Your 8 Digit Account Number : \nPress \"Enter\" when done");

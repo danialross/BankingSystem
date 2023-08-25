@@ -15,13 +15,6 @@ LoggedIn::~LoggedIn()
     delete ui;
 }
 
-void LoggedIn::on_pushButton_clicked()
-{
-    before->setEnabled(true);
-    close();
-
-}
-
 void LoggedIn::setBefore(QMainWindow *newBefore)
 {
     before = newBefore;
@@ -36,5 +29,10 @@ void LoggedIn::on_balanceButton_clicked()
     balanceWindow->show();
     balanceWindow->setBefore(this);
     setEnabled(false);
+}
+
+void LoggedIn::setCurrCard(Card *newCurrCard)
+{
+    currCard = newCurrCard;
 }
 
