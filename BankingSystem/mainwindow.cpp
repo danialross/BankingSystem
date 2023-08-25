@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "loggedin.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -14,6 +14,15 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::enableWindow(bool value){
+    if(value == true){
+        setEnabled(true);
+    }else{
+        setEnabled(false);
+    }
+
 }
 
 
@@ -139,6 +148,22 @@ void MainWindow::on_enterButton_clicked()
         map<int , Card*> cards = bank->getCards();
 
         if(passwords[cards[currAcc]] == pin){
+            //open new window for withdraw deposit and check balance
+
+
+                LoggedIn *loggedInUi = new LoggedIn;
+                loggedInUi->show();
+                loggedInUi->setBefore(this);
+
+                setEnabled(false);
+                ui->label->setText("Enter Your 8 Digit Account Number : \nPress \"Enter\" when done");
+                currAcc = -1;
+                ui->lineEdit->setText("");
+                ui->enterButton->setEnabled(false);
+                ui->lineEdit->setEchoMode(QLineEdit::Normal);
+
+
+
 
         }else{
             ui->label->setText("Enter Your 8 Digit Account Number : \nPress \"Enter\" when done");
@@ -152,3 +177,9 @@ void MainWindow::on_enterButton_clicked()
 
 
 }
+
+void MainWindow::on_exitButton_clicked()
+{
+    close();
+}
+
