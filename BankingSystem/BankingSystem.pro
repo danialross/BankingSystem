@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    balancewindow.cpp \
     loggedin.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -16,12 +17,14 @@ SOURCES += \
     Card.cpp
 
 HEADERS += \
+    balancewindow.h \
     loggedin.h \
     mainwindow.h
     Bank.h
     Card.h
 
 FORMS += \
+    balancewindow.ui \
     loggedin.ui \
     mainwindow.ui
 
