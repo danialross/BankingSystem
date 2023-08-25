@@ -110,7 +110,25 @@ void Withdraw::on_clearButton_clicked()
 void Withdraw::on_enterButton_clicked()
 {
 
+    QString input = ui->lineEdit->text();
 
+    int amount = stoi(input.toStdString());
+
+    if(amount > card->getBalance()){
+        ui->errorLabel->setText("Insufficient funds.");
+        ui->lineEdit->setText("");
+
+    }else if(amount == 0){
+        ui->errorLabel->setText("Invalid amount.");
+        ui->lineEdit->setText("");
+
+    }else{
+    card->setBalance(card->getBalance()-amount);
+    ui->label->setText("Enter the amount to withdraw.\n\nAvailable amount : $" + QString::number(this->card->getBalance()));
+    ui->errorLabel->setText("Success");
+    ui->lineEdit->setText("");
+
+    }
 }
 
 void Withdraw::on_exitButton_clicked()
