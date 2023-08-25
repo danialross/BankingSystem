@@ -4,11 +4,13 @@
 #include "withdraw.h"
 
 
-LoggedIn::LoggedIn(QWidget *parent) :
+LoggedIn::LoggedIn(QMainWindow *before,Card *card,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::LoggedIn)
 {
     ui->setupUi(this);
+    this->before = before;
+    this->currCard = card;
 
 }
 
@@ -27,9 +29,8 @@ void LoggedIn::setBefore(QMainWindow *newBefore)
 void LoggedIn::on_balanceButton_clicked()
 {
     QString balance = QString::number(currCard->getBalance());
-    BalanceWindow *balanceWindow = new BalanceWindow(balance);
+    BalanceWindow *balanceWindow = new BalanceWindow(this,balance);
     balanceWindow->show();
-    balanceWindow->setBefore(this);
     setEnabled(false);
 }
 

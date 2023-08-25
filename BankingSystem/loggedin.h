@@ -13,7 +13,7 @@ class LoggedIn : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit LoggedIn(QWidget *parent = nullptr);
+    explicit LoggedIn(QMainWindow *before,Card *card, QWidget *parent = nullptr);
     ~LoggedIn();
 
     void setBefore(QMainWindow *newBefore);

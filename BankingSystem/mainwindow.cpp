@@ -151,17 +151,15 @@ void MainWindow::on_enterButton_clicked()
             //open new window for withdraw deposit and check balance
 
 
-                LoggedIn *loggedInUi = new LoggedIn;
-                loggedInUi->show();
-                loggedInUi->setBefore(this);
-                loggedInUi->setCurrCard(cards[currAcc]);
+            LoggedIn *loggedInUi = new LoggedIn(this,cards[currAcc]);
+            loggedInUi->show();
 
-                setEnabled(false);
-                ui->label->setText("Enter Your 8 Digit Account Number : \nPress \"Enter\" when done");
-                currAcc = -1;
-                ui->lineEdit->setText("");
-                ui->enterButton->setEnabled(false);
-                ui->lineEdit->setEchoMode(QLineEdit::Normal);
+            setEnabled(false);
+            ui->label->setText("Enter Your 8 Digit Account Number : \nPress \"Enter\" when done");
+            currAcc = -1;
+            ui->lineEdit->setText("");
+            ui->enterButton->setEnabled(false);
+            ui->lineEdit->setEchoMode(QLineEdit::Normal);
 
 
 
