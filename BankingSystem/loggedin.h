@@ -27,6 +27,8 @@ private slots:
 
     void on_withdrawButton_clicked();
 
+    void on_depositButton_clicked();
+
 private:
     Ui::LoggedIn *ui;
     QMainWindow *before;

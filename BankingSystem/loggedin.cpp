@@ -2,6 +2,7 @@
 #include "ui_loggedin.h"
 #include "balancewindow.h"
 #include "withdraw.h"
+#include "depositwindow.h"
 
 
 LoggedIn::LoggedIn(QMainWindow *before,Card *card,QWidget *parent) :
@@ -52,6 +53,14 @@ void LoggedIn::on_withdrawButton_clicked()
 {
     Withdraw *withdrawWindow = new Withdraw(currCard,this);
     withdrawWindow->show();
+    setEnabled(false);
+}
+
+
+void LoggedIn::on_depositButton_clicked()
+{
+    DepositWindow *depositWindow = new DepositWindow(currCard,this);
+    depositWindow->show();
     setEnabled(false);
 }
 

@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     balancewindow.cpp \
+    depositwindow.cpp \
     loggedin.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 
 HEADERS += \
     balancewindow.h \
+    depositwindow.h \
     loggedin.h \
     mainwindow.h \
     withdraw.h
@@ -27,6 +29,7 @@ HEADERS += \
 
 FORMS += \
     balancewindow.ui \
+    depositwindow.ui \
     loggedin.ui \
     mainwindow.ui \
     withdraw.ui
